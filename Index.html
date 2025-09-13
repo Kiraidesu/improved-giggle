@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAM Den</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f5f5f5, #e0dcd1);
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #a0522d;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            margin: 0 20px;
+            padding: 10px;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+        .navbar a:hover {
+            color: #ffcc00;
+            text-underline-offset: 10px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 50px 0;
+        }
+        .intro {
+            background: url('coffee-bg.jpg') no-repeat center center/cover;
+            color: #333;
+            padding: 120px 0 100px;
+        }
+        .about, .menu {
+            padding: 100px 0;
+        }
+        .about {
+            background: #fff;
+            color: #333;
+        }
+        .menu {
+            background: linear-gradient(to bottom, #e0dcd1, #f5f5f5);
+        }
+        h1, h2 {
+            font-size: 2.5em;
+            color: #a0522d;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            transition: text-underline-offset 0.3s ease, letter-spacing 0.3s ease;
+            margin-bottom: 40px;
+        }
+        h1:hover, h2:hover {
+            text-underline-offset: 10px;
+            letter-spacing: 2px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            aspect-ratio: 4 / 3;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+        }
+        .menu-item img {
+            width: 25%;
+			height:45%;
+            border-radius: 8px;
+            margin: auto;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        span {
+            display: block;
+            font-size: 18px;
+            color: #a0522d;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#menu">Menu</a>
+    </nav>
+    
+    <!-- Introduction Section -->
+    <section id="home" class="intro">
+        <div class="container">
+            <h1>Welcome to Krishna South Indian Breakfast Centre</h1>
+            <p>Enjoy the finest breakfast with a relaxing atmosphere.</p>
+        </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about" class="about">
+      <h2>About Us</h2>
+        <div class="container">
+            <h2>About Art_Lisha </h2>
+            <p> Details </p>
+        </div>
+      <div class="container">
+            <h2>About Aunt /(s/)</h2>
+            <p> Details </p>
+        </div>
+     
+      <div class="container">
+            <h2>About coder</h2>
+            <p> Used-less Coder, programer thinking and future all time Grand-Master </p>
+        </div>
+    </section>
+    
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Products</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="dhokla.jpg" alt="Dhokla">
+                    <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="masala-dosa.jpg" alt="Masala Dosa">
+                   <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="idly.png" alt="Idly">
+                   <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="sambhar-wada.jpg" alt="Sambhar Wada">
+                   <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="poha.jpg" alt="Poha">
+                  <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+		<div class="menu-item">
+                    <img src="puri-sabji.jpg" alt="Puri-sabji">
+                   <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+		<div class="menu-item">
+                    <img src="paratha-sabji.jpg" alt="Paratha-sabji">
+                    <h3>Dress type ..</h3>
+                    <p>For ....</p>
+                    <span>Rs.450</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
