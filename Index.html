@@ -4,196 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAM Den</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #f5f5f5, #e0dcd1);
+        /* CSS Variables for easy management */
+        :root {
+            --primary-color: #6F4E37; /* Dark coffee brown */
+            --accent-color: #D4AF37;  /* Warm gold */
+            --light-bg: #F8F8F8;      /* Off-white */
+            --dark-text: #2c3e50;     /* Dark gray-blue */
+            --section-padding: 80px;
         }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Add padding to account for fixed navbar */
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #a0522d;
-            padding: 10px 0;
+            background-color: var(--primary-color);
+            padding: 1rem 0;
             text-align: center;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 1.2em;
-            margin: 0 20px;
-            padding: 10px;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-            text-decoration: underline;
-            text-underline-offset: 5px;
+            font-size: 1.1em;
+            margin: 0 1.5rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
+
         .navbar a:hover {
-            color: #ffcc00;
-            text-underline-offset: 10px;
+            color: var(--accent-color);
+			transform: scale(1.05);
         }
+        
         .container {
-            width: 80%;
+            width: 90%; /* Increase container width for more space */
+            max-width: 1200px; /* Max width to prevent content from stretching too much */
             margin: auto;
             text-align: center;
-            padding: 50px 0;
+            padding: 2rem 0;
         }
+
         .intro {
             background: url('coffee-bg.jpg') no-repeat center center/cover;
-            color: #333;
-            padding: 120px 0 100px;
+            color: white; /* Change text color for better contrast on a background image */
+            padding: 10rem 0 8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for readability */
         }
+        
+        .intro p {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        
         .about, .menu {
-            padding: 100px 0;
+            padding: var(--section-padding) 0;
         }
+
         .about {
-            background: #fff;
-            color: #333;
+            background-color: white;
+            color: var(--dark-text);
         }
+
         .menu {
-            background: linear-gradient(to bottom, #e0dcd1, #f5f5f5);
+            background-color: var(--light-bg);
         }
+
         h1, h2 {
-            font-size: 2.5em;
-            color: #a0522d;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-            transition: text-underline-offset 0.3s ease, letter-spacing 0.3s ease;
-            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+			transition: color 0.3s ease, transform 0.3s ease;
         }
-        h1:hover, h2:hover {
-            text-underline-offset: 10px;
-            letter-spacing: 2px;
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
+        
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             justify-content: center;
         }
+
         .menu-item {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            aspect-ratio: 4 / 3;
         }
+        
         .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
+
         .menu-item img {
-            width: 25%;
-			height:45%;
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Use cover to fill the container, can be 'contain' if preferred */
             border-radius: 8px;
-            margin: auto;
+            margin-bottom: 1rem;
         }
-        h3 {
-            font-size: 1.5em;
-        }
+
         p {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #555;
+            margin: 0;
+            flex-grow: 1; /* Pushes the price to the bottom */
         }
-        span {
+
+        .price {
             display: block;
-            font-size: 18px;
-            color: #a0522d;
-            margin-top: 10px;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-top: 1rem;
             font-weight: bold;
         }
+        
+        .about-team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .team-member {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
     </style>
 </head>
 <body>
     
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="#home">Home</a>
+		<a href="#menu">Products</a>
         <a href="#about">About Us</a>
-        <a href="#menu">Menu</a>
     </nav>
     
-    <!-- Introduction Section -->
     <section id="home" class="intro">
         <div class="container">
-            <h1>Welcome to Krishna South Indian Breakfast Centre</h1>
-            <p>Enjoy the finest breakfast with a relaxing atmosphere.</p>
+            <h1>Welcome to FAM's Den</h1>
+            <p>Enjoy the finest creative work here.</p>
         </div>
     </section>
     
-    <!-- About Us Section -->
-    <section id="about" class="about">
-      <h2>About Us</h2>
-        <div class="container">
-            <h2>About Art_Lisha </h2>
-            <p> Details </p>
-        </div>
-      <div class="container">
-            <h2>About Aunt /(s/)</h2>
-            <p> Details </p>
-        </div>
-     
-      <div class="container">
-            <h2>About coder</h2>
-            <p> Used-less Coder, programer thinking and future all time Grand-Master </p>
-        </div>
-    </section>
-    
-    <!-- Menu Section -->
     <section id="menu" class="menu">
         <div class="container">
-            <h2>Products</h2>
+            <h2>Our Products</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="dhokla.jpg" alt="Dhokla">
-                    <h3>Dress type ..</h3>
-                    <p>For ....</p>
-                    <span>Rs.450</span>
+                    <img src="images/Gulabi Leela Vastra.jpg" alt="Gulabi Leela Vastra">
+                    <h3>Gulabi Leela Vastra <br>(Without cap)</h3>
+                    <p>Size: 7 inch<br>Krishna Size: 5</p>
+                    <span class="price">Rs.450</span>
                 </div>
                 <div class="menu-item">
-                    <img src="masala-dosa.jpg" alt="Masala Dosa">
-                   <h3>Dress type ..</h3>
+                    <img src="images/Vrindavan Laal Poshak.jpg" alt="Vrindavan Laal Poshak">
+                    <h3>Vrindavan Laal Poshak <br>(Without cap)</h3>
                     <p>For ....</p>
-                    <span>Rs.450</span>
+                    <span class="price">Rs.450</span>
                 </div>
                 <div class="menu-item">
-                    <img src="idly.png" alt="Idly">
-                   <h3>Dress type ..</h3>
+                    <img src="images/Gulaab Varna Vastra.jpg" alt="Gulaab Varna Vastra">
+                    <h3>Gulaab Varna Vastra <br>(Without cap)</h3>
                     <p>For ....</p>
-                    <span>Rs.450</span>
+                    <span class="price">Rs.450</span>
                 </div>
                 <div class="menu-item">
-                    <img src="sambhar-wada.jpg" alt="Sambhar Wada">
-                   <h3>Dress type ..</h3>
-                    <p>For ....</p>
-                    <span>Rs.450</span>
+                    <img src="images/Gulabi Leela Vastra cap.jpg" alt="Gulabi Leela Vastra with cap">
+                    <h3>Gulabi Leela Vastra <br>(With cap)</h3>
+                    <p>Size: 7 inch<br>Krishna Size: 5</p>
+                    <span class="price">Rs.550</span>
                 </div>
                 <div class="menu-item">
-                    <img src="poha.jpg" alt="Poha">
-                  <h3>Dress type ..</h3>
+                    <img src="images/Vrindavan Laal Poshak cap.jpg" alt="Vrindavan Laal Poshak with cap">
+                    <h3>Vrindavan Laal Poshak <br>(With cap)</h3>
                     <p>For ....</p>
-                    <span>Rs.450</span>
+                    <span class="price">Rs.550</span>
                 </div>
-		<div class="menu-item">
-                    <img src="puri-sabji.jpg" alt="Puri-sabji">
-                   <h3>Dress type ..</h3>
+                <div class="menu-item">
+                    <img src="images/Gulaab Varna Vastra cap.jpg" alt="Gulaab Varna Vastra cap">
+                    <h3>Gulaab Varna Vastra <br>(With cap)</h3>
                     <p>For ....</p>
-                    <span>Rs.450</span>
+                    <span class="price">Rs.550</span>
                 </div>
-		<div class="menu-item">
-                    <img src="paratha-sabji.jpg" alt="Paratha-sabji">
-                    <h3>Dress type ..</h3>
+                <div class="menu-item">
+                    <img src="images/Shyam Kesari Vastra.jpg" alt="Shyam Kesari Vastra">
+                    <h3>Shyam Kesari Vastra <br>(Without cap)</h3>
+                    <p>For ..</p>
+                    <span class="price">Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Gulabi Shwet Phool Poshak.jpg" alt="Gulabi Shwet Phool Poshak">
+                    <h3>Gulabi Shwet Phool Poshak <br>(Without cap)</h3>
                     <p>For ....</p>
-                    <span>Rs.450</span>
+                    <span class="price">Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Gopala's Tilak Vastra.jpg" alt="Gopala's Tilak Vastra">
+                    <h3>Gopala's Tilak Vastra <br>(Without cap)</h3>
+                    <p>For ....</p>
+                    <span class="price">Rs.450</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Shyam Kesari Vastra cap.jpg" alt="Shyam Kesari Vastra cap">
+                    <h3>Shyam Kesari Vastra <br>(With cap)</h3>
+                    <p>For ....</p>
+                    <span class="price">Rs.550</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Gulabi Shwet Phool Poshak cap.jpg" alt="Gulabi Shwet Phool Poshak cap">
+                    <h3>Gulabi Shwet Phool Poshak <br>(With cap)</h3>
+                    <p>For ....</p>
+                    <span class="price">Rs.550</span>
+                </div>
+                <div class="menu-item">
+                    <img src="images/Gopala's Tilak Vastra cap.jpg" alt="Gopala's Tilak Vastra cap">
+                    <h3>Gopala's Tilak Vastra <br>(With cap)</h3>
+                    <p>For ....</p>
+                    <span class="price">Rs.550</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-team">
+                <div class="team-member">
+                    <h3>Art_Lisha</h3>
+                    <p>Details</p>
+                </div>
+                <div class="team-member">
+                    <h3>Aunt(s)</h3>
+                    <p>Details</p>
+                </div>
+                <div class="team-member">
+                    <h3>Coder</h3>
+                    <p>Used-less Coder, programmer thinking and future all time Grand-Master</p>
                 </div>
             </div>
         </div>
