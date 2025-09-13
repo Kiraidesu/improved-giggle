@@ -8,22 +8,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for easy management */
+        /* CSS Variables based on the Golden Ratio */
         :root {
             --primary-color: #6F4E37; /* Dark coffee brown */
             --accent-color: #D4AF37;  /* Warm gold */
             --light-bg: #F8F8F8;      /* Off-white */
             --dark-text: #2c3e50;     /* Dark gray-blue */
-            --section-padding: 80px;
+
+            /* Golden Ratio Spacing Scale */
+            --space-xs: calc(1rem / 1.618); /* ~0.618rem */
+            --space-sm: 1rem;
+            --space-md: calc(1rem * 1.618); /* ~1.618rem */
+            --space-lg: calc(1.618rem * 1.618); /* ~2.618rem */
+            --space-xl: calc(2.618rem * 1.618); /* ~4.236rem */
+            --section-padding: var(--space-xl);
         }
 
         body {
             font-family: 'Lato', sans-serif;
             margin: 0;
-            padding-top: 60px; /* Add padding to account for fixed navbar */
+            padding-top: var(--space-xl);
             background-color: var(--light-bg);
             color: var(--dark-text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .navbar {
@@ -31,43 +40,46 @@
             top: 0;
             width: 100%;
             background-color: var(--primary-color);
-            padding: 1rem 0;
+            padding: var(--space-sm) 0;
             text-align: center;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 1.1em;
-            margin: 0 1.5rem;
-            padding: 0.5rem;
+            font-size: clamp(1rem, 4vw, 1.1em);
+            margin: 0 clamp(0.5rem, 2vw, var(--space-md));
+            padding: var(--space-xs);
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .navbar a:hover {
             color: var(--accent-color);
-			transform: scale(1.05);
+            transform: scale(1.05);
         }
         
         .container {
-            width: 90%; /* Increase container width for more space */
-            max-width: 1200px; /* Max width to prevent content from stretching too much */
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
             text-align: center;
-            padding: 2rem 0;
+            padding: var(--space-md) 0;
         }
 
         .intro {
             background: url('coffee-bg.jpg') no-repeat center center/cover;
-            color: white; /* Change text color for better contrast on a background image */
-            padding: 10rem 0 8rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for readability */
+            color: white;
+            padding: var(--section-padding) 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .intro p {
-            font-size: 1.4em;
+            font-size: clamp(1.2rem, 3vw, 1.4em);
             font-weight: bold;
         }
         
@@ -87,35 +99,36 @@
         h1, h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            /* Golden ratio for font size: 1.618 * 1.618 = 2.618 */
+            font-size: clamp(2rem, 5vw, calc(1.618 * 1.618rem)); 
             color: var(--primary-color);
-            margin-bottom: 2.5rem;
-			transition: color 0.3s ease, transform 0.3s ease;
+            margin-bottom: var(--space-lg);
         }
 
         h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5em;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5em);
+            margin-top: var(--space-sm);
+            margin-bottom: var(--space-xs);
         }
         
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: var(--space-md);
             justify-content: center;
         }
 
         .menu-item {
             background: white;
-            padding: 1.5rem;
+            padding: var(--space-md);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
         
         .menu-item:hover {
@@ -126,48 +139,63 @@
         .menu-item img {
             width: 100%;
             height: 200px;
-            object-fit: cover; /* Use cover to fill the container, can be 'contain' if preferred */
+            object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-sm);
         }
 
         p {
             font-size: 1em;
             color: #555;
             margin: 0;
-            flex-grow: 1; /* Pushes the price to the bottom */
+            flex-grow: 1;
         }
 
         .price {
             display: block;
-            font-size: 1.2em;
+            font-size: clamp(1rem, 3vw, 1.2em);
             color: var(--primary-color);
-            margin-top: 1rem;
+            margin-top: var(--space-sm);
             font-weight: bold;
         }
         
         .about-team {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
             text-align: left;
         }
         
         .team-member {
             background: #fff;
-            padding: 1.5rem;
+            padding: var(--space-md);
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding-top: 50px;
+            }
+            .navbar {
+                padding: var(--space-xs) 0;
+            }
+        }
     </style>
 </head>
 <body>
     
     <nav class="navbar">
         <a href="#home">Home</a>
-		<a href="#menu">Products</a>
+        <a href="#menu">Products</a>
         <a href="#about">About Us</a>
     </nav>
     
